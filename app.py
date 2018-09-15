@@ -61,7 +61,7 @@ def checkDanger(latitude, longitude):
 
 		for index, row in df.iterrows():
 			if math.sqrt((row['latitude'] - latitude) ** 2 + (row['longitude'] - longitude) ** 2) < 0.0005: #distance formula
-				numClose++
+				numClose += 1
 
 		if numClose > 3:
 			return jsonify("true") #dangerous
