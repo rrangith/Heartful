@@ -42,14 +42,13 @@ class MapContainer extends Component {
           <HeatmapLayer
               data={this.state.results}
               options={{
-                radius:35
+                radius:40, opacity: 1
               }}
           />
         </GoogleMap>
    ));
     return (
       <div className="overall-container">
-        <h1 className="project-title">KeepMeSafe</h1>
         <GoogleMapContainer
           containerElement={ <div style={{ height: `100vh`, width: '100%' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
