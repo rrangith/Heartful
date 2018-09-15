@@ -22,4 +22,4 @@ class Location(db.Model):
             'latitude': self.latitude,
             'longitude': self.longitude,
             'heartbeats': self.heartbeats
-
+		}
