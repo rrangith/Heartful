@@ -30,7 +30,7 @@ def hello(latitude = None, longitude = None, heartbeats = None):
 		)
 		db.session.add(location)
 		db.session.commit()
-		return "Location added. location id={}".format(location.id)
+		return jsonify("test")
 	except Exception as e:
 		return(str(e))
 
@@ -49,7 +49,6 @@ def get_by_id(id_):
         return jsonify(location.serialize())
     except Exception as e:
 	    return(str(e))
-
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
