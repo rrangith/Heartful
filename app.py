@@ -1,4 +1,4 @@
-from flask import Flask, request, json, render_template
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -30,7 +30,7 @@ def hello(latitude = None, longitude = None, heartbeats = None):
 		)
 		db.session.add(location)
 		db.session.commit()
-		return "Location added. location id={}".format(location.id)
+		return jsonify("test")
 	except Exception as e:
 		return(str(e))
 
@@ -42,6 +42,13 @@ def get_all():
     except Exception as e:
 	    return(str(e))
 
+@app.route("/get/<id_>")
+def get_by_id(id_):
+    try:
+        location = Location.query.filter_by(id = id_).first()
+        return jsonify(location.serialize())
+    except Exception as e:
+	    return(str(e))
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
