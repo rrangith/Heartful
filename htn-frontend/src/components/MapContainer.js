@@ -1,4 +1,5 @@
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+/* global google */
+import {Map, InfoWindow, Marker, GoogleApiWrapper, HeatmapLayer} from 'google-maps-react';
 import React, { Component } from 'react';
 
 const maps_key = process.env.REACT_APP_MAPS_KEY;
@@ -6,7 +7,8 @@ const maps_key = process.env.REACT_APP_MAPS_KEY;
 export class MapContainer extends Component {
   render() {
     return (
-      <Map 
+      <div>
+        <Map 
         google={this.props.google} 
         zoom={14}
         initialCenter={{
@@ -14,8 +16,14 @@ export class MapContainer extends Component {
           lng: -80.5400242
         }}
         >
-
-      </Map>
+          <HeatmapLayer
+              data={[
+                new google.maps.LatLng(43.4728813, -80.5400242)
+              ]}
+            />
+        </Map>
+        
+      </div>
     );
   }
 }
