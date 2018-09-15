@@ -22,17 +22,20 @@ def asd():
 
 @app.route('/add/<latitude>/<longitude>/<heartbeats>')
 def hello(latitude = None, longitude = None, heartbeats = None):
-	try:
-		location = Location(
-			latitude = latitude,
-			longitude = longitude,
-			heartbeats = heartbeats
-		)
-		db.session.add(location)
-		db.session.commit()
-		return jsonify("test")
-	except Exception as e:
-		return(str(e))
+	if heartbeats > 95:
+		try:
+			location = Location(
+				latitude = latitude,
+				longitude = longitude,
+				heartbeats = heartbeats
+			)
+			db.session.add(location)
+			db.session.commit()
+			return jsonify("Successfully added")
+		except Exception as e:
+			return(str(e))
+	else:
+		return jsonify("Heartbeats not high enough")
 
 @app.route("/getall")
 def get_all():
