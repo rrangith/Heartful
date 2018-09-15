@@ -35,11 +35,11 @@ def home():
     return render_template('test.html')
 
 @app.route('/test')
-def test():
+def asd():
 	return render_template('test1.html', content = "asd")
 
 @app.route('/asd/<latitude>/<longitude>/<heartbeats>')
-def test(latitude = None, longitude = None, heartbeats = None):
+def hello(latitude = None, longitude = None, heartbeats = None):
 	if latitude == None or longitude == None or heartbeats == None:
 		return render_template('test1.html', content = "FAIL")
 	return render_template('test1.html', content = "latitude: " + latitude + " longitude: " + longitude + " heartbeats: " + heartbeats)
