@@ -3,8 +3,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/locations'
-db = SQLAlchemy(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/locations'
+#db = SQLAlchemy(app)
 
 # Create database model
 class Location(db.Model):
