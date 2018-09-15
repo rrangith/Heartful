@@ -12,14 +12,29 @@ messaging.peerSocket.onopen = function() {
   messaging.peerSocket.onmessage = function(evt) {
     // Output the message to the console
     geolocation.getCurrentPosition(function(position) {
-      let data = {
+      let outData = {
         info : {
           heartrate: evt.data.beat.heartRate,
           latitude: position.coords.latitude,
           longitude: position.coords.longitude
         }
       };
-      console.log(JSON.stringify(data));
+      console.log(JSON.stringify(outData));
+      if (outData.info.heartrate > 90)
+        {
+          sendData(outData)
+        }
     })
   }
+}
+
+function sendData(outData) {
+  fetch('https://boiling-inlet-47202.herokuapp.com/add/' + outData.info.latitude + '/' + outData.info.longitude + '/' + outData.info.heartrate, {
+    method: 'get'
+  }).then(function(response) {
+    console.log(response);
+    return response;
+  }).then(function(data) {
+    console.log(data);
+  }).catch(err => console.log('[FETCH]: ' + err));
 }
