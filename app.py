@@ -42,6 +42,14 @@ def get_all():
     except Exception as e:
 	    return(str(e))
 
+@app.route("/get/<id_>")
+def get_by_id(id_):
+    try:
+        location = Location.query.filter_by(id = id_).first()
+        return jsonify(location.serialize())
+    except Exception as e:
+	    return(str(e))
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
