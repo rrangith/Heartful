@@ -1,0 +1,13 @@
+.project-title {
+    color: black;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    padding: 1px;
+    margin: auto;
+}
+
+.overall-container {
+    text-align: center;
+    width: 100%;
+}

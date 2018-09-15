@@ -32,24 +32,24 @@ class MapContainer extends Component {
 
   render() {
     const GoogleMapContainer = withGoogleMap(props => (
-      <GoogleMap
-        defaultCenter = {{
-          lat: 43.472092,
-          lng: -80.542594
-        }}
-        defaultZoom = { 17 }
-      >
-      <h1>KeepMeSafe</h1>
-        <HeatmapLayer
-            data={this.state.results}
-            options={{
-              radius:35
-            }}
-        />
-      </GoogleMap>
+        <GoogleMap
+          defaultCenter = {{
+            lat: 43.472092,
+            lng: -80.542594
+          }}
+          defaultZoom = { 17 }
+        >
+          <HeatmapLayer
+              data={this.state.results}
+              options={{
+                radius:35
+              }}
+          />
+        </GoogleMap>
    ));
     return (
-      <div>
+      <div className="overall-container">
+        <h1 className="project-title">KeepMeSafe</h1>
         <GoogleMapContainer
           containerElement={ <div style={{ height: `100vh`, width: '100%' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
