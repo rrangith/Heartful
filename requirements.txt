@@ -2,3 +2,6 @@ Flask==1.0.2
 gunicorn==19.9.0
 psycopg2==2.7.5
 Flask-SQLAlchemy==2.3.2
+Flask-Script==2.0.6
+Flask-Migrate==2.2.1
+psyopg2-binary==2.7.5

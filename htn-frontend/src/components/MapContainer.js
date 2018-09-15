@@ -13,13 +13,18 @@ class MapContainer extends Component {
           lat: 43.4728813,
           lng: -80.5400242
         }}
-        defaultZoom = { 15 }
+        defaultZoom = { 17 }
       >
         <HeatmapLayer
             data={[
-                new google.maps.LatLng(43.4728813, -80.5400242)
+                new google.maps.LatLng(43.4728813, -80.5400242),
+                new google.maps.LatLng(43.4729813, -80.5400242),
+                new google.maps.LatLng(43.4727813, -80.5400242),
+                new google.maps.LatLng(43.4727313, -80.5400242)
             ]}
-            radius={100}
+            options={{
+              radius:35
+            }}
         />
       </GoogleMap>
    ));
