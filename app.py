@@ -20,11 +20,19 @@ def home():
 def asd():
 	return render_template('test1.html', content = "asd")
 
-@app.route('/asd/<latitude>/<longitude>/<heartbeats>')
+@app.route('/add/<latitude>/<longitude>/<heartbeats>')
 def hello(latitude = None, longitude = None, heartbeats = None):
-	if latitude == None or longitude == None or heartbeats == None:
-		return render_template('test1.html', content = "FAIL")
-	return render_template('test1.html', content = "latitude: " + latitude + " longitude: " + longitude + " heartbeats: " + heartbeats)
+	try:
+		location = Location(
+			latitude = latitude,
+			longitude = longitude,
+			heartbeats = heartbeats
+		)
+		db.session.add(location)
+		db.session.commit()
+		return "Location added. location id={}".format(location.id)
+	except Exception as e:
+		return(str(e))
 
 
 if __name__ == '__main__':
