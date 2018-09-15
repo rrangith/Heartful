@@ -34,6 +34,14 @@ def hello(latitude = None, longitude = None, heartbeats = None):
 	except Exception as e:
 		return(str(e))
 
+@app.route("/getall")
+def get_all():
+    try:
+        locations = Location.query.all()
+        return  jsonify([l.serialize() for l in locations])
+    except Exception as e:
+	    return(str(e))
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
