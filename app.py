@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
-
-
+import pandas
+import math
 
 app = Flask(__name__)
 
@@ -21,7 +21,7 @@ def asd():
 	return render_template('test1.html', content = "asd")
 
 @app.route('/add/<latitude>/<longitude>/<heartbeats>')
-def hello(latitude = None, longitude = None, heartbeats = None):
+def addLocation(latitude = None, longitude = None, heartbeats = None):
 	if heartbeats > 95:
 		try:
 			location = Location(
@@ -38,7 +38,7 @@ def hello(latitude = None, longitude = None, heartbeats = None):
 		return jsonify("Heartbeats not high enough")
 
 @app.route("/getall")
-def get_all():
+def getAll():
     try:
         locations = Location.query.all()
         return  jsonify([l.serialize() for l in locations])
@@ -46,12 +46,33 @@ def get_all():
 	    return(str(e))
 
 @app.route("/get/<id_>")
-def get_by_id(id_):
+def getById(id_):
     try:
         location = Location.query.filter_by(id = id_).first()
         return jsonify(location.serialize())
     except Exception as e:
 	    return(str(e))
+
+@app.route("/checkdanger/<latitude>/<longitude>")
+def checkDanger(latitude, longitude):
+	try:
+		locations = Location.query.all()
+		df = pandas.DataFrame([l.serialize() for l in locations])
+		numClose = 0
+
+		for index, row in df.iterrows():
+			if math.sqrt((float(row['latitude']) - float(latitude)) ** 2 + (float(row['longitude']) - float(longitude)) ** 2) < 0.0005: #distance formula
+				numClose += 1
+
+		if numClose > 3: #hardcoded to 3 for demo purposes
+			return jsonify("true") #dangerous
+		else:
+			return jsonify("false") #safe
+
+
+	except Exception as e:
+		return (str(e))
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
