@@ -1,0 +1,13 @@
+{
+  "fitbit": {
+    "appType": "app",
+    "wipeColor": "#607d8b",
+    "requestedPermissions": [
+      "access_heart_rate"
+    ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ]
+  }
+}
