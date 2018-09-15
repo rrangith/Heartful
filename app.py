@@ -28,7 +28,7 @@ app = Flask(__name__)
 #             'latitude': self.latitude,
 #             'longitude': self.longitude,
 #             'heartbeats':self.heartbeats
-        }
+#      }
 
 @app.route('/')
 def home():
