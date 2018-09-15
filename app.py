@@ -56,6 +56,7 @@ def getById(id_):
 @app.route("/checkdanger/<latitude>/<longitude>")
 def checkDanger(latitude, longitude):
 	try:
+		return (type(getAll()))
 		df = pandas.DataFrame(getAll())
 		numClose = 0
 
