@@ -1,4 +1,4 @@
-from flask import Flask, request, json, render_template
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 
