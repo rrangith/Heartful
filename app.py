@@ -69,6 +69,7 @@ def checkDanger(latitude, longitude):
 				numClose += 1
 
 		if numClose > 3: #hardcoded to 3 for demo purposes
+			sendSMS('-1', '+15149701830')
 			return jsonify("true") #dangerous
 		else:
 			return jsonify("false") #safe
