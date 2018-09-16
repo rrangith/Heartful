@@ -1,0 +1,12 @@
+<svg>
+  <text id="hrm-label" class="sensor-label" x="50%" y="15%">heart rate</text>
+  <text id="hrm-data" class="sensor-data" x="50%" y="30%">{ ... }</text>
+  <svg>
+  <use id='ok-button' class='alert-button' href="#square-button-positive" y="42%">
+    <set href="#text" attributeName="text-buffer" to="I'm okay" />
+  </use>
+  <use id='alert-button' class='alert-button' href="#square-button-negative" y="70%">
+    <set href="#text" attributeName="text-buffer" to="Get help" />
+  </use>
+</svg>
+</svg>
