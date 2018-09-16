@@ -61,7 +61,7 @@ def checkDanger(latitude, longitude):
 		numClose = 0
 
 		for index, row in df.iterrows():
-			if math.sqrt((row['latitude'] - latitude) ** 2 + (row['longitude'] - longitude) ** 2) < 0.0005: #distance formula
+			if math.sqrt((float(row['latitude']) - float(latitude)) ** 2 + (float(row['longitude']) - float(longitude)) ** 2) < 0.0005: #distance formula
 				numClose += 1
 
 		if numClose > 3: #hardcoded to 3 for demo purposes
