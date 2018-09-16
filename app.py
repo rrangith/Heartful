@@ -57,8 +57,7 @@ def getById(id_):
 def checkDanger(latitude, longitude):
 	try:
 		locations = Location.query.all()
-		return str(type(jsonify([l.serialize() for l in locations])))
-		df = pandas.read_json(jsonify([l.serialize() for l in locations]))
+		df = pandas.read_json([l.serialize() for l in locations])
 		numClose = 0
 
 		for index, row in df.iterrows():
