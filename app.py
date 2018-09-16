@@ -69,7 +69,17 @@ def checkDanger(latitude, longitude):
 				numClose += 1
 
 		if numClose > 3: #hardcoded to 3 for demo purposes
-			sendSMS('-1', '+15149701830')
+			msg = random.choice(calmList)
+ 
+			account_sid = os.environ['TWILIO_SID'] 
+			auth_token = os.environ['TWILIO_AUTH_TOKEN']
+			client = Client(account_sid, auth_token) 
+
+			message = client.messages.create( 
+				from_= os.environ['PHONE_ONE'],  
+				body=msg,      
+				to= os.environ['PHONE_TWO']
+			)
 			return jsonify("true") #dangerous
 		else:
 			return jsonify("false") #safe
