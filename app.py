@@ -75,7 +75,7 @@ def checkDanger(latitude, longitude):
 		return (str(e))
 
 @app.route("/sendsms/<msg>/<number>")
-def sendSMS():
+def sendSMS(msg, number):
  
 	account_sid = os.environ['TWILIO_SID'] 
 	auth_token = os.environ['TWILIO_AUTH_TOKEN']
