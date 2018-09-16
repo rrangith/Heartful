@@ -56,8 +56,8 @@ def getById(id_):
 @app.route("/checkdanger/<latitude>/<longitude>")
 def checkDanger(latitude, longitude):
 	try:
-		return (str(type(getAll()))
-		df = pandas.DataFrame(getAll())
+		locations = Location.query.all()
+		df = pandas.DataFrame(jsonify([l.serialize() for l in locations]))
 		numClose = 0
 
 		for index, row in df.iterrows():
