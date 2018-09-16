@@ -87,7 +87,7 @@ def sendSMS():
 		to= os.environ['PHONE_TWO'] 
 	) 
 
-	print(message.sid)
+	return(message.sid)
 
 
 if __name__ == '__main__':
