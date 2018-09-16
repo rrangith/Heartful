@@ -1,6 +1,5 @@
-<svg>
-  <text id="location-label" class="sensor-label" x="50%" y="110">location</text>
-  <text id="location-data" class="sensor-data" x="50%" y="145">{ ... }</text>
-  <text id="hrm-label" class="sensor-label" x="50%" y="190">heart rate</text>
-  <text id="hrm-data" class="sensor-data" x="50%" y="225">{ ... }</text>
+<svg viewport-fill="lightblue">
+  <text id="hrm-label" class="sensor-label" x="50%" y="110">heart rate</text>
+  <text id="hrm-data" class="sensor-data" x="50%" y="145">{ ... }</text>
+  <image id="beach-pic" width="100%" height="100%" x="0" y="0" href="beach.png" />
 </svg>
