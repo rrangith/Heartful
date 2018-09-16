@@ -80,7 +80,7 @@ def checkDanger(latitude, longitude):
 @app.route("/sendsms/<msg>/<number>")
 def sendSMS(msg, number):
 
-	if msg == -1:
+	if msg == '-1':
 		msg = random.choice(calmList)
  
 	account_sid = os.environ['TWILIO_SID'] 
