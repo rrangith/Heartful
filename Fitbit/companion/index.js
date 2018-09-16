@@ -20,10 +20,16 @@ messaging.peerSocket.onopen = function() {
         }
       };
       console.log(JSON.stringify(outData));
-      if (outData.info.heartrate > 90)
-        {
-          sendData(outData)
-        }
+      if (outData.info.hearrate > 95) {
+        sendData(outData)
+      }
+      
+      let respond = checkDanger(outData);
+      console.log(respond)
+      if (respond === 'true') {
+        console.log("INSIDE LOOP");
+        sendMessage();
+      }
     })
   }
 }
@@ -37,4 +43,27 @@ function sendData(outData) {
   }).then(function(data) {
     console.log(data);
   }).catch(err => console.log('[FETCH]: ' + err));
+}
+
+function checkDanger(outData) {
+  fetch('https://boiling-inlet-47202.herokuapp.com/checkdanger/' + outData.info.latitude + '/' + outData.info.longitude, {
+    method: 'get'
+  }).then(function(response) {
+    return response.json();
+    
+  }).then(function(data) {
+    console.log(data);
+  }).catch(err => console.log('[FETCH]: ' + err));
+}
+
+function sendMessage() {
+  // Sample data
+  var data = {
+    calm: true
+  }
+
+  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+    // Send the data to peer as a message
+    messaging.peerSocket.send(data);
+  }
 }
