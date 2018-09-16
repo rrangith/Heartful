@@ -4,8 +4,6 @@ import HeatmapLayer from 'react-google-maps/lib/components/visualization/Heatmap
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const maps_key = process.env.REACT_APP_MAPS_KEY;
- 
 class MapContainer extends Component {
   constructor(props) {
     super(props);
