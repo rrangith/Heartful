@@ -37,7 +37,7 @@ class MapContainer extends Component {
             lat: 43.472092,
             lng: -80.542594
           }}
-          defaultZoom = { 17 }
+          defaultZoom = { 18 }
           mapTypeId= "satellite"
         >
           <HeatmapLayer
