@@ -74,8 +74,8 @@ def checkDanger(latitude, longitude):
 	except Exception as e:
 		return (str(e))
 
-@app.route("/sendsms")
-def sendSMS():
+@app.route("/sendsms/<msg>/<number>")
+def sendSMS(msg, number):
  
 	account_sid = os.environ['TWILIO_SID'] 
 	auth_token = os.environ['TWILIO_AUTH_TOKEN']
@@ -83,11 +83,11 @@ def sendSMS():
 
 	message = client.messages.create( 
 		from_= os.environ['PHONE_ONE'],  
-		body='help',      
-		to= os.environ['PHONE_TWO'] 
+		body=msg,      
+		to= number
 	) 
 
-	return(message.sid)
+	return("Successfully sent")
 
 
 if __name__ == '__main__':
