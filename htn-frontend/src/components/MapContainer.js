@@ -38,6 +38,7 @@ class MapContainer extends Component {
             lng: -80.542594
           }}
           defaultZoom = { 17 }
+          mapTypeId= "satellite"
         >
           <HeatmapLayer
               data={this.state.results}
