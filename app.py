@@ -4,6 +4,7 @@ import os
 import pandas
 import math
 from twilio.rest import Client 
+<<<<<<< HEAD
 import random
 
 from quotes import calmList
@@ -76,9 +77,9 @@ def checkDanger(latitude, longitude):
 			client = Client(account_sid, auth_token) 
 
 			message = client.messages.create( 
-				from_= os.environ['PHONE_ONE'],  
-				body=msg,      
-				to= os.environ['PHONE_TWO']
+				from_ = os.environ['PHONE_ONE'],  
+				body = msg,      
+				to = os.environ['PHONE_TWO']
 			)
 			return jsonify("true") #dangerous
 		else:
@@ -89,10 +90,16 @@ def checkDanger(latitude, longitude):
 		return (str(e))
 
 @app.route("/sendsms/<msg>/<number>")
-def sendSMS(msg, number):
+def sendSMS(msg, number): #msg is msg code, number is receiving phone number
 
-	if msg == '-1':
-		msg = random.choice(calmList)
+	newMsg = None
+
+	if msg == 'a':
+		newMsg = "Please help, Cleo is injured and needs medical assistance"
+
+	elif msg == 'b':
+		newMsg = "Cleo could possibly be in danger, please check up on her"
+
  
 	account_sid = os.environ['TWILIO_SID'] 
 	auth_token = os.environ['TWILIO_AUTH_TOKEN']
@@ -100,7 +107,7 @@ def sendSMS(msg, number):
 
 	message = client.messages.create( 
 		from_= os.environ['PHONE_ONE'],  
-		body=msg,      
+		body= newMsg,      
 		to= number
 	) 
 
