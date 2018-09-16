@@ -26,10 +26,6 @@ messaging.peerSocket.onopen = function() {
       
       let respond = checkDanger(outData);
       console.log(respond)
-      if (respond === 'true') {
-        console.log("INSIDE LOOP");
-        sendMessage();
-      }
     })
   }
 }
@@ -54,16 +50,4 @@ function checkDanger(outData) {
   }).then(function(data) {
     console.log(data);
   }).catch(err => console.log('[FETCH]: ' + err));
-}
-
-function sendMessage() {
-  // Sample data
-  var data = {
-    calm: true
-  }
-
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    // Send the data to peer as a message
-    messaging.peerSocket.send(data);
-  }
 }

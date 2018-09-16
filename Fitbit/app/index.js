@@ -2,9 +2,6 @@ import document from "document";
 import { HeartRateSensor } from "heart-rate";
 import { geolocation } from "geolocation";
 import * as messaging from "messaging";
-let beachPic = document.getElementById("beach-pic");
-
-beachPic.style.display = "none";
 
 let hrmData = document.getElementById("hrm-data");
 
@@ -17,12 +14,6 @@ hrm.start();
 messaging.peerSocket.onopen = function() {
   // Ready to send or receive messages
   active = true;
-  messaging.peerSocket.onmessage = function(evt) {
-    // Output the message to the console
-    if (evt.data.calm) {
-      beachPic.style.display = "inline";
-    }
-  }
 }
 
 function sendMessage(heartBeat) {
