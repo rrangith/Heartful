@@ -97,7 +97,7 @@ def sendSMS(msg, number): #msg is msg code, number is receiving phone number
 		newMsg = "Please help, Cleo is injured and needs medical assistance"
 
 	elif msg == 'b':
-		newMsg = "Cleo could possibly be in danger, please check up on he
+		newMsg = "Cleo could possibly be in danger, please check up on he"
  
 	account_sid = os.environ['TWILIO_SID'] 
 	auth_token = os.environ['TWILIO_AUTH_TOKEN']
