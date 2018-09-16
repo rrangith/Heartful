@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 import pandas
 import math
+from twilio.rest import Client 
 
 app = Flask(__name__)
 
@@ -72,6 +73,21 @@ def checkDanger(latitude, longitude):
 
 	except Exception as e:
 		return (str(e))
+
+@app.route("/sendsms")
+def sendSMS():
+ 
+	account_sid = os.environ['TWILIO_SID'] 
+	auth_token = os.environ['TWILIO_AUTH_TOKEN']
+	client = Client(account_sid, auth_token) 
+
+	message = client.messages.create( 
+		from_= os.environ['PHONE_ONE'],  
+		body='help',      
+		to= os.environ['PHONE_TWO'] 
+	) 
+
+	print(message.sid)
 
 
 if __name__ == '__main__':
