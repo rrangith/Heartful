@@ -4,7 +4,7 @@ import os
 import pandas
 import math
 from twilio.rest import Client 
-<<<<<<< HEAD
+
 import random
 
 from quotes import calmList
