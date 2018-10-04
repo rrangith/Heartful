@@ -1,5 +1,7 @@
 # Heartful | Hack The North 2018
 
+Link to the project devpost: https://devpost.com/software/heartful
+
 ## Inspiration
 There's very little wearable tech that can provide people with information about the environments in which they feel the most stressed, allowing users to make connections and avoid stressors. On top of this, stress is a leading cause of heart-related illnesses, we wanted to bring awareness to these issues as many of us students rarely think about how we are treating our bodies. 
 
@@ -17,5 +19,4 @@ FitbitOS is very new and so there is very little online support along with conne
 
 ## What's next for heartful
 We would love to deal with the ever-growing opioid crisis by determining the initial symptoms of overdose (ex. little to no heart rate, unresponsiveness) and then be able to send texts to their loved ones or alert paramedics. 
-
 
