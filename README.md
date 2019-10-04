@@ -18,5 +18,5 @@ We built this using FitbitOS which is a javascript based language for the fronte
 FitbitOS is very new and so there is very little online support along with connectivity issues given the nature of how the fitbitOS runs. We had to connect the device to the phone app to the backend back to some front-end. 
 
 ## What's next for heartful
-We would love to deal with the ever-growing opioid crisis by determining the initial symptoms of overdose (ex. little to no heart rate, unresponsiveness) and then be able to send texts to their loved ones or alert paramedics. 
+We would love to deal with the ever-growing opioid crisis by determining the initial symptoms of overdose (ex. little to no heart rate, unresponsiveness) and then be able to send texts to their loved ones or alert paramedics!
 
